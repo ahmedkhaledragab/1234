@@ -2,6 +2,8 @@ import { useState, useEffect, useMemo } from 'react';
 import { useCartStore, type OrderType } from '../lib/cart-store';
 import { getCategories, getActiveProducts, createOrder, createOrderItem } from '../lib/repo';
 import { formatCurrency, getOrderTypeLabel } from '../lib/utils';
+import { printReceipt, printKitchenTicket } from '../lib/qz-printer';
+import { getReceiptSettings } from '../lib/receipt-settings';
 import type { Category, Product } from '../lib/local-db';
 import { toast } from 'sonner';
 import {
@@ -108,6 +110,42 @@ export function POSPage() {
 
       cart.clearCart();
       toast.success(`تم إنشاء الطلب #${order.order_number}`);
+
+      // Auto-print receipt & kitchen ticket
+      const settings = getReceiptSettings();
+      if (settings.autoPrint && settings.printerName) {
+        const printData = {
+          orderNumber: order.order_number,
+          orderType: cart.orderType,
+          items: cart.items.map(item => ({
+            name: item.name,
+            quantity: item.quantity,
+            price: item.unit_price,
+            modifiers: item.modifiers.map(m => m.name),
+            notes: item.notes,
+          })),
+          subtotal,
+          discount: cart.discountAmount,
+          total,
+          notes: cart.notes || undefined,
+        };
+
+        // Print customer receipt
+        printReceipt(printData).catch(console.error);
+
+        // Print kitchen ticket
+        printKitchenTicket({
+          orderNumber: order.order_number,
+          orderType: cart.orderType,
+          items: cart.items.map(item => ({
+            name: item.name,
+            quantity: item.quantity,
+            modifiers: item.modifiers.map(m => m.name),
+            notes: item.notes,
+          })),
+          notes: cart.notes || undefined,
+        }).catch(console.error);
+      }
     } catch (err) {
       toast.error('حدث خطأ أثناء إنشاء الطلب');
     }
