@@ -1,6 +1,16 @@
 import Dexie, { type Table } from 'dexie';
 
 // ===== Database Types =====
+export interface AppUser {
+  id: string;
+  name: string;
+  email: string;
+  password: string; // hashed locally
+  role: 'cashier' | 'manager' | 'super_admin';
+  is_active: boolean;
+  created_at: string;
+}
+
 export interface Category {
   id: string;
   name: string;
@@ -176,18 +186,9 @@ export interface ExpenseCategory {
   name: string;
 }
 
-export interface OutboxEntry {
-  id?: number;
-  table_name: string;
-  operation: 'insert' | 'update' | 'delete';
-  record_id: string;
-  payload: any;
-  created_at: string;
-  retries: number;
-}
-
 // ===== Dexie Database =====
 class CityPOSDatabase extends Dexie {
+  app_users!: Table<AppUser, string>;
   categories!: Table<Category, string>;
   products!: Table<Product, string>;
   product_variants!: Table<ProductVariant, string>;
@@ -205,11 +206,11 @@ class CityPOSDatabase extends Dexie {
   shifts!: Table<Shift, string>;
   expenses!: Table<Expense, string>;
   expense_categories!: Table<ExpenseCategory, string>;
-  outbox!: Table<OutboxEntry, number>;
 
   constructor() {
     super('CityPOSDB');
     this.version(1).stores({
+      app_users: 'id, email, role, is_active',
       categories: 'id, sort_order',
       products: 'id, category_id, is_active',
       product_variants: 'id, product_id',
@@ -227,9 +228,24 @@ class CityPOSDatabase extends Dexie {
       shifts: 'id, opened_at',
       expenses: 'id, date, category_id',
       expense_categories: 'id',
-      outbox: '++id, table_name, created_at',
     });
   }
 }
 
 export const db = new CityPOSDatabase();
+
+// Seed default admin user on first run
+export async function seedDefaultUser() {
+  const count = await db.app_users.count();
+  if (count === 0) {
+    await db.app_users.add({
+      id: crypto.randomUUID(),
+      name: 'مدير النظام',
+      email: 'admin',
+      password: 'admin', // plain text for local desktop app
+      role: 'super_admin',
+      is_active: true,
+      created_at: new Date().toISOString(),
+    });
+  }
+}

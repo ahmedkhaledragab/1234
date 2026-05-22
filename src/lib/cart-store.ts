@@ -32,8 +32,6 @@ interface CartState {
   discountType: 'percentage' | 'fixed' | null;
   notes: string;
 
-
-  // Actions
   addItem: (item: Omit<CartItem, 'id'>) => void;
   removeItem: (id: string) => void;
   updateQuantity: (id: string, quantity: number) => void;
@@ -49,7 +47,6 @@ interface CartState {
   getSubtotal: () => number;
   getTotal: () => number;
 }
-
 
 export const useCartStore = create<CartState>((set, get) => ({
   items: [],
@@ -85,7 +82,6 @@ export const useCartStore = create<CartState>((set, get) => ({
       items: state.items.map((i) => (i.id === id ? { ...i, quantity } : i)),
     }));
   },
-
 
   setOrderType: (type) => set({ orderType: type }),
   setTableId: (id) => set({ tableId: id }),

@@ -1,16 +1,14 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { supabase } from './supabase';
-import { startSync, stopSync } from './sync';
-import type { User } from '@supabase/supabase-js';
+import { db, seedDefaultUser, type AppUser } from './local-db';
 
 export type UserRole = 'cashier' | 'manager' | 'super_admin';
 
 interface AuthContextType {
-  user: User | null;
+  user: AppUser | null;
   role: UserRole;
   loading: boolean;
   signIn: (email: string, password: string) => Promise<{ error?: string }>;
-  signOut: () => Promise<void>;
+  signOut: () => void;
   hasPermission: (requiredRole: UserRole) => boolean;
 }
 
@@ -22,57 +20,49 @@ const ROLE_HIERARCHY: Record<UserRole, number> = {
   super_admin: 3,
 };
 
+const SESSION_KEY = 'city_pos_session';
+
 export function AuthProvider({ children }: { children: React.ReactNode }) {
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<AppUser | null>(null);
   const [role, setRole] = useState<UserRole>('cashier');
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Check current session
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setUser(session?.user ?? null);
-      if (session?.user) {
-        fetchRole(session.user.id);
-        startSync();
-      }
-      setLoading(false);
-    });
-
-    // Listen for auth changes
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-      setUser(session?.user ?? null);
-      if (session?.user) {
-        fetchRole(session.user.id);
-        startSync();
-      } else {
-        stopSync();
-        setRole('cashier');
-      }
-    });
-
-    return () => subscription.unsubscribe();
+    initAuth();
   }, []);
 
-  async function fetchRole(userId: string) {
-    const { data } = await supabase
-      .from('user_roles')
-      .select('role')
-      .eq('user_id', userId)
-      .single();
-    if (data?.role) {
-      setRole(data.role as UserRole);
+  async function initAuth() {
+    // Ensure default admin exists
+    await seedDefaultUser();
+
+    // Check saved session
+    const savedId = localStorage.getItem(SESSION_KEY);
+    if (savedId) {
+      const savedUser = await db.app_users.get(savedId);
+      if (savedUser && savedUser.is_active) {
+        setUser(savedUser);
+        setRole(savedUser.role);
+      }
     }
+    setLoading(false);
   }
 
   async function signIn(email: string, password: string) {
-    const { error } = await supabase.auth.signInWithPassword({ email, password });
-    if (error) return { error: error.message };
+    const found = await db.app_users.where('email').equals(email).first();
+    if (!found) return { error: 'المستخدم غير موجود' };
+    if (!found.is_active) return { error: 'الحساب معطل' };
+    if (found.password !== password) return { error: 'كلمة المرور غير صحيحة' };
+
+    setUser(found);
+    setRole(found.role);
+    localStorage.setItem(SESSION_KEY, found.id);
     return {};
   }
 
-  async function signOut() {
-    stopSync();
-    await supabase.auth.signOut();
+  function signOut() {
+    setUser(null);
+    setRole('cashier');
+    localStorage.removeItem(SESSION_KEY);
   }
 
   function hasPermission(requiredRole: UserRole): boolean {

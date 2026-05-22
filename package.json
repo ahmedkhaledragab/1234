@@ -1,7 +1,7 @@
 {
   "name": "city-pos",
   "version": "1.0.0",
-  "description": "ستي — نظام نقاط البيع المتكامل للمطاعم والكافيهات",
+  "description": "ستي — نظام نقاط البيع المتكامل (Desktop)",
   "main": "electron/main.js",
   "private": true,
   "type": "module",
@@ -9,19 +9,16 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "build:electron": "npm run build && electron-builder",
-    "preview": "vite preview",
     "electron:dev": "concurrently \"vite\" \"wait-on http://localhost:5173 && electron .\"",
-    "lint": "eslint ."
+    "preview": "vite preview"
   },
   "dependencies": {
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.0.0",
-    "@supabase/supabase-js": "^2.47.0",
     "dexie": "^4.0.0",
     "dexie-react-hooks": "^1.1.7",
     "zustand": "^5.0.0",
-    "@tanstack/react-query": "^5.60.0",
     "date-fns": "^4.1.0",
     "lucide-react": "^0.460.0",
     "clsx": "^2.1.1",
@@ -31,16 +28,7 @@
     "jspdf": "^2.5.2",
     "jspdf-autotable": "^3.8.4",
     "qz-tray": "^2.2.4",
-    "sonner": "^1.7.0",
-    "@radix-ui/react-dialog": "^1.1.4",
-    "@radix-ui/react-dropdown-menu": "^2.1.4",
-    "@radix-ui/react-select": "^2.1.4",
-    "@radix-ui/react-tabs": "^1.1.2",
-    "@radix-ui/react-tooltip": "^1.1.6",
-    "@radix-ui/react-switch": "^1.1.2",
-    "@radix-ui/react-label": "^2.1.2",
-    "@radix-ui/react-separator": "^1.1.2",
-    "@radix-ui/react-scroll-area": "^1.2.2"
+    "sonner": "^1.7.0"
   },
   "devDependencies": {
     "@types/react": "^19.0.0",
@@ -58,7 +46,7 @@
   },
   "build": {
     "appId": "com.city.pos",
-    "productName": "ستي POS",
+    "productName": "City POS",
     "directories": {
       "output": "electron-release"
     },
@@ -74,7 +62,9 @@
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
       "createDesktopShortcut": true,
-      "unicode": true
+      "createStartMenuShortcut": true,
+      "unicode": true,
+      "installerLanguages": ["ar"]
     }
   }
 }

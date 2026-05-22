@@ -5,7 +5,6 @@ import type { Coupon } from '../lib/local-db';
 import { toast } from 'sonner';
 import { formatCurrency, formatDate } from '../lib/utils';
 import { Plus, Ticket, Copy } from 'lucide-react';
-import { addToOutbox } from '../lib/sync';
 
 export function CouponsPage() {
   const [coupons, setCoupons] = useState<Coupon[]>([]);
@@ -20,9 +19,9 @@ export function CouponsPage() {
     const id = crypto.randomUUID();
     const record: Coupon = { ...form, id, current_uses: 0, is_active: true, expires_at: form.expires_at || undefined };
     await db.coupons.put(record);
-    await addToOutbox('coupons', 'insert', id, record);
     toast.success('تم إضافة الكوبون');
     setShowAdd(false);
+    setForm({ code: '', discount_type: 'percentage', discount_value: 0, min_order_amount: 0, max_uses: 0, expires_at: '' });
     load();
   }
 
@@ -51,6 +50,7 @@ export function CouponsPage() {
             </div>
           </div>
         ))}
+        {coupons.length === 0 && <div className="col-span-full text-center py-8 text-gray-400">لا توجد كوبونات</div>}
       </div>
 
       {showAdd && (
@@ -65,7 +65,7 @@ export function CouponsPage() {
               </select>
               <input type="number" placeholder="قيمة الخصم" value={form.discount_value || ''} onChange={e => setForm({...form, discount_value: +e.target.value})} className="input-field" required />
               <input type="number" placeholder="الحد الأقصى للاستخدام (0 = لا محدود)" value={form.max_uses || ''} onChange={e => setForm({...form, max_uses: +e.target.value})} className="input-field" />
-              <input type="date" value={form.expires_at} onChange={e => setForm({...form, expires_at: e.target.value})} className="input-field" placeholder="تاريخ الانتهاء" />
+              <input type="date" value={form.expires_at} onChange={e => setForm({...form, expires_at: e.target.value})} className="input-field" />
               <div className="flex gap-3">
                 <button type="submit" className="btn-primary flex-1">إضافة</button>
                 <button type="button" onClick={() => setShowAdd(false)} className="btn-secondary flex-1">إلغاء</button>

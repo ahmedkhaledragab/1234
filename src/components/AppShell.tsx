@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useAuth } from '../lib/auth';
-import { useNetworkStore } from '../lib/network-status';
 import {
   ShoppingCart, ClipboardList, UtensilsCrossed, LayoutDashboard,
   Users, Package, BookOpen, UserCog, Clock, Wallet, BarChart3,
-  Settings, MapPin, Ticket, LogOut, Menu, X, Wifi, WifiOff,
-  RefreshCw, ChevronRight
+  Settings, MapPin, Ticket, LogOut, Menu, X
 } from 'lucide-react';
 
 interface NavItem {
@@ -36,9 +34,7 @@ const navItems: NavItem[] = [
 
 export function AppShell({ children }: { children: React.ReactNode }) {
   const [sidebarOpen, setSidebarOpen] = useState(true);
-  const { signOut, role, hasPermission } = useAuth();
-  const { isOnline, isSyncing, lastSyncAt } = useNetworkStore();
-  const location = useLocation();
+  const { signOut, user, hasPermission } = useAuth();
 
   const filteredNav = navItems.filter(item => {
     if (!item.requiredRole) return true;
@@ -47,7 +43,6 @@ export function AppShell({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="flex h-screen overflow-hidden bg-gray-50">
-
       {/* Sidebar */}
       <aside className={`${sidebarOpen ? 'w-64' : 'w-16'} bg-white border-l border-gray-200 flex flex-col transition-all duration-300 shrink-0`}>
         {/* Logo */}
@@ -80,18 +75,12 @@ export function AppShell({ children }: { children: React.ReactNode }) {
 
         {/* Footer */}
         <div className="border-t border-gray-100 p-3 space-y-2">
-          {/* Sync status */}
-          <div className="flex items-center gap-2 text-xs text-gray-500">
-            {isOnline ? (
-              <Wifi size={14} className="text-green-500" />
-            ) : (
-              <WifiOff size={14} className="text-red-500" />
-            )}
-            {sidebarOpen && (
-              <span>{isOnline ? 'متصل' : 'غير متصل'}</span>
-            )}
-            {isSyncing && <RefreshCw size={14} className="animate-spin text-primary-500" />}
-          </div>
+          {/* Current user */}
+          {sidebarOpen && user && (
+            <div className="text-xs text-gray-500 px-3 py-1">
+              {user.name} ({user.role === 'super_admin' ? 'مدير' : user.role === 'manager' ? 'مشرف' : 'كاشير'})
+            </div>
+          )}
 
           {/* Logout */}
           <button
