@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain } = require('electron');
+const { app, BrowserWindow, ipcMain, dialog } = require('electron');
 const path = require('path');
 
 let mainWindow;
@@ -20,16 +20,16 @@ function createWindow() {
     show: false,
   });
 
-  // Load the app
+  // Load the built app (no dev server needed for production)
   if (process.env.VITE_DEV_SERVER_URL) {
     mainWindow.loadURL(process.env.VITE_DEV_SERVER_URL);
-    mainWindow.webContents.openDevTools();
   } else {
     mainWindow.loadFile(path.join(__dirname, '../dist/index.html'));
   }
 
   mainWindow.once('ready-to-show', () => {
     mainWindow.show();
+    mainWindow.maximize();
   });
 
   mainWindow.on('closed', () => {
@@ -37,18 +37,23 @@ function createWindow() {
   });
 }
 
-app.whenReady().then(createWindow);
+// Single instance lock - prevent opening multiple windows
+const gotTheLock = app.requestSingleInstanceLock();
+if (!gotTheLock) {
+  app.quit();
+} else {
+  app.on('second-instance', () => {
+    if (mainWindow) {
+      if (mainWindow.isMinimized()) mainWindow.restore();
+      mainWindow.focus();
+    }
+  });
+
+  app.whenReady().then(createWindow);
+}
 
 app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') {
-    app.quit();
-  }
-});
-
-app.on('activate', () => {
-  if (BrowserWindow.getAllWindows().length === 0) {
-    createWindow();
-  }
+  app.quit();
 });
 
 // IPC handlers
@@ -58,4 +63,8 @@ ipcMain.handle('get-app-version', () => {
 
 ipcMain.handle('get-app-path', () => {
   return app.getPath('userData');
+});
+
+ipcMain.handle('show-message', async (event, options) => {
+  return dialog.showMessageBox(mainWindow, options);
 });
