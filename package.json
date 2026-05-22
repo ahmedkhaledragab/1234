@@ -2,7 +2,7 @@
   "name": "city-pos",
   "version": "1.0.0",
   "description": "ستي — نظام نقاط البيع المتكامل (Desktop)",
-  "main": "electron/main.js",
+  "main": "electron/main.cjs",
   "private": true,
   "type": "module",
   "scripts": {
@@ -52,7 +52,8 @@
     },
     "files": [
       "dist/**/*",
-      "electron/**/*"
+      "electron/main.cjs",
+      "electron/preload.cjs"
     ],
     "win": {
       "target": "nsis",
@@ -63,8 +64,7 @@
       "allowToChangeInstallationDirectory": true,
       "createDesktopShortcut": true,
       "createStartMenuShortcut": true,
-      "unicode": true,
-      "installerLanguages": ["ar"]
+      "unicode": true
     }
   }
 }
