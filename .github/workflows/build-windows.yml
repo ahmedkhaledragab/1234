@@ -7,6 +7,12 @@ on:
       - master
       - "build/**"
       - "release/**"
+      - "feat/**"
+      - "fix/**"
+  pull_request:
+    branches:
+      - main
+      - master
   workflow_dispatch:
     inputs:
       create_release:
