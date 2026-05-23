@@ -1,0 +1,110 @@
+name: Build Windows EXE
+
+on:
+  push:
+    branches:
+      - main
+      - master
+      - "build/**"
+      - "release/**"
+  workflow_dispatch:
+    inputs:
+      create_release:
+        description: "Create a GitHub Release with the built EXE"
+        required: false
+        default: "true"
+        type: choice
+        options:
+          - "true"
+          - "false"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Build Sity POS for Windows
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm install --legacy-peer-deps
+        shell: pwsh
+
+      - name: Build Vite (web bundle)
+        run: npm run build
+        shell: pwsh
+        env:
+          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
+
+      - name: Build Windows installer + portable
+        run: npx electron-builder --win nsis portable --x64 --publish never
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: List build output
+        run: dir electron-release
+        shell: pwsh
+
+      - name: Upload Setup installer
+        uses: actions/upload-artifact@v4
+        with:
+          name: Sity-POS-Setup
+          path: electron-release/Sity-POS-Setup-*.exe
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Upload Portable EXE
+        uses: actions/upload-artifact@v4
+        with:
+          name: Sity-POS-Portable
+          path: electron-release/Sity-POS-Portable-*.exe
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Get app version
+        id: version
+        shell: pwsh
+        run: |
+          $version = (Get-Content package.json | ConvertFrom-Json).version
+          $tag = "v$version-build${{ github.run_number }}"
+          echo "tag=$tag" >> $env:GITHUB_OUTPUT
+          echo "version=$version" >> $env:GITHUB_OUTPUT
+
+      - name: Create GitHub Release
+        if: github.event_name == 'workflow_dispatch' && github.event.inputs.create_release == 'true'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.version.outputs.tag }}
+          name: "Sity POS ${{ steps.version.outputs.version }} (build ${{ github.run_number }})"
+          body: |
+            ## Sity POS — نظام نقاط البيع المتكامل
+
+            ### تنزيل الـ EXE
+            - **Sity-POS-Setup-*.exe** — مثبّت كامل (NSIS) — ينصب البرنامج ويعمل اختصار على سطح المكتب.
+            - **Sity-POS-Portable-*.exe** — نسخة محمولة بدون تنصيب — شغّلها مباشرة.
+
+            ### بعد التشغيل
+            1. سجل دخولك ببيانات Supabase (لو مفعّل).
+            2. لتفعيل الطباعة: ثبّت **QZ Tray** على الجهاز اللي عليه الطابعة.
+            3. الإعدادات → الفاتورة لاختيار الطابعة وقالب 80mm/58mm.
+
+            بُنِيَ تلقائيًا من commit `${{ github.sha }}`.
+          draft: false
+          prerelease: false
+          files: |
+            electron-release/Sity-POS-Setup-*.exe
+            electron-release/Sity-POS-Portable-*.exe
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

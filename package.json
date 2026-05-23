@@ -7,7 +7,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "vite build",
+    "build:tsc": "tsc -b && vite build",
+    "build:win": "npm run build && electron-builder --win nsis portable --x64",
     "build:electron": "npm run build && electron-builder",
     "preview": "vite preview",
     "electron:dev": "concurrently \"vite\" \"wait-on http://localhost:5173 && electron .\"",
@@ -58,7 +60,7 @@
   },
   "build": {
     "appId": "com.city.pos",
-    "productName": "ستي POS",
+    "productName": "Sity POS",
     "directories": {
       "output": "electron-release"
     },
@@ -67,14 +69,30 @@
       "electron/**/*"
     ],
     "win": {
-      "target": "nsis",
-      "icon": "public/icon.ico"
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        },
+        {
+          "target": "portable",
+          "arch": ["x64"]
+        }
+      ],
+      "artifactName": "Sity-POS-${version}-${arch}-${ext}.${ext}"
     },
     "nsis": {
       "oneClick": false,
+      "perMachine": false,
       "allowToChangeInstallationDirectory": true,
       "createDesktopShortcut": true,
-      "unicode": true
+      "createStartMenuShortcut": true,
+      "shortcutName": "Sity POS",
+      "unicode": true,
+      "artifactName": "Sity-POS-Setup-${version}.${ext}"
+    },
+    "portable": {
+      "artifactName": "Sity-POS-Portable-${version}.${ext}"
     }
   }
 }

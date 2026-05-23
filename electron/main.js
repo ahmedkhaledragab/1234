@@ -1,16 +1,20 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
+const fs = require('fs');
 
 let mainWindow;
 
 function createWindow() {
+  const iconPath = path.join(__dirname, '../public/icon.ico');
+  const hasIcon = fs.existsSync(iconPath);
+
   mainWindow = new BrowserWindow({
     width: 1400,
     height: 900,
     minWidth: 1024,
     minHeight: 700,
     title: 'ستي POS',
-    icon: path.join(__dirname, '../public/icon.ico'),
+    ...(hasIcon ? { icon: iconPath } : {}),
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: false,
