@@ -1,0 +1,21 @@
+/*
+Theme Name: Insectra
+Description: RTL stylesheet (Arabic).
+*/
+
+html[dir="rtl"] body { direction: rtl; text-align: right; font-family: "Cairo", "Tajawal", "Almarai", system-ui, -apple-system, "Segoe UI", Tahoma, Arial, sans-serif; }
+
+html[dir="rtl"] .ins-nav ul { padding-right: 0; }
+html[dir="rtl"] .ins-nav li { margin-right: 0; margin-left: 22px; }
+html[dir="rtl"] .ins-btn .arrow { transform: scaleX(-1); margin-right: 8px; margin-left: 0; }
+html[dir="rtl"] .ins-feature .icon { margin-left: 14px; margin-right: 0; }
+html[dir="rtl"] .ins-service-card .corner { left: auto; right: 0; transform: scaleX(-1); }
+html[dir="rtl"] .ins-list li { padding-right: 28px; padding-left: 0; }
+html[dir="rtl"] .ins-list li::before { right: 0; left: auto; }
+html[dir="rtl"] .ins-footer .col-social a { margin-left: 8px; margin-right: 0; }
+html[dir="rtl"] .ins-pricing-card .ribbon { right: auto; left: -10px; transform: scaleX(-1); }
+html[dir="rtl"] .ins-form .field-icon { right: 14px; left: auto; }
+html[dir="rtl"] .ins-form input, html[dir="rtl"] .ins-form textarea { padding-right: 44px; padding-left: 14px; }
+html[dir="rtl"] .ins-hero .hero-shape-left { transform: scaleX(-1); }
+html[dir="rtl"] .ins-counter .num::after { margin-right: 4px; margin-left: 0; }
+html[dir="rtl"] .ins-team-card .socials a { margin-left: 6px; margin-right: 0; }

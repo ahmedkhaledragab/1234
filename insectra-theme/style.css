@@ -1,0 +1,19 @@
+/*
+Theme Name: Insectra
+Theme URI: https://example.com/insectra
+Author: Insectra Team
+Author URI: https://example.com
+Description: Insectra is a modern Pest Control & Disinfection WordPress theme inspired by the Insectra design. Built for Elementor with full RTL and Arabic/English bilingual support, custom post types for Services/Team/Testimonials/Pricing, and a clean, conversion-focused layout.
+Version: 1.0.0
+Requires at least: 6.0
+Tested up to: 6.6
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: insectra
+Domain Path: /languages
+Tags: elementor, pest-control, business, rtl-language-support, translation-ready, custom-logo, custom-menu, featured-images, threaded-comments, theme-options, full-width-template, blog, two-columns, three-columns, right-sidebar
+*/
+
+/* Theme styles are enqueued from /assets/css/main.css to keep this file as the metadata header.
+   Do not remove the header above. */

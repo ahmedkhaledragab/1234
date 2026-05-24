@@ -1,0 +1,251 @@
+# Arabic translation for Insectra theme.
+msgid ""
+msgstr ""
+"Project-Id-Version: Insectra 1.0.0\n"
+"PO-Revision-Date: 2026-05-24 00:00+0000\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5);\n"
+"X-Domain: insectra\n"
+
+msgid "Primary Menu"
+msgstr "القائمة الرئيسية"
+
+msgid "Footer Menu"
+msgstr "قائمة التذييل"
+
+msgid "Mobile Menu"
+msgstr "قائمة الجوال"
+
+msgid "Skip to content"
+msgstr "تخطي إلى المحتوى"
+
+msgid "Get a Quote"
+msgstr "اطلب عرض سعر"
+
+msgid "Get Free Quote"
+msgstr "احصل على عرض سعر مجاني"
+
+msgid "Our Services"
+msgstr "خدماتنا"
+
+msgid "Pest Control Experts"
+msgstr "خبراء مكافحة الحشرات"
+
+msgid "Safe & Reliable Pest Control Service"
+msgstr "خدمة مكافحة حشرات آمنة وموثوقة"
+
+msgid "We protect your home and business with eco-friendly treatments."
+msgstr "نحمي منزلك وعملك بمعالجات صديقة للبيئة."
+
+msgid "We protect your home and business with eco-friendly treatments by certified specialists."
+msgstr "نحمي منزلك وعملك بمعالجات صديقة للبيئة على يد متخصصين معتمدين."
+
+msgid "Certified Specialists"
+msgstr "متخصصون معتمدون"
+
+msgid "Eco-friendly Methods"
+msgstr "أساليب صديقة للبيئة"
+
+msgid "24/7 Support"
+msgstr "دعم 24/7"
+
+msgid "Safe & Approved"
+msgstr "آمن ومعتمد"
+
+msgid "EPA-approved chemicals safe for kids and pets."
+msgstr "مواد معتمدة وآمنة للأطفال والحيوانات الأليفة."
+
+msgid "Certified Team"
+msgstr "فريق معتمد"
+
+msgid "Licensed technicians with 10+ years experience."
+msgstr "فنيون مرخّصون بخبرة تزيد عن 10 سنوات."
+
+msgid "Emergency response within hours, anywhere."
+msgstr "استجابة طارئة خلال ساعات في أي مكان."
+
+msgid "About Insectra"
+msgstr "عن إنسيكترا"
+
+msgid "Trusted partner for a pest-free environment"
+msgstr "شريكك الموثوق لبيئة خالية من الحشرات"
+
+msgid "Discover More"
+msgstr "اكتشف المزيد"
+
+msgid "What We Offer"
+msgstr "ما نقدمه"
+
+msgid "Pest control services we provide"
+msgstr "خدمات مكافحة الحشرات التي نقدمها"
+
+msgid "Termite Control"
+msgstr "مكافحة النمل الأبيض"
+
+msgid "Mosquito Control"
+msgstr "مكافحة البعوض"
+
+msgid "Spider Control"
+msgstr "مكافحة العناكب"
+
+msgid "Cockroach Control"
+msgstr "مكافحة الصراصير"
+
+msgid "Rodent Control"
+msgstr "مكافحة القوارض"
+
+msgid "Disinfection"
+msgstr "تعقيم وتطهير"
+
+msgid "Read More"
+msgstr "اقرأ المزيد"
+
+msgid "Happy Clients"
+msgstr "عميل سعيد"
+
+msgid "Expert Team"
+msgstr "خبراء"
+
+msgid "Projects Completed"
+msgstr "مشروع منجز"
+
+msgid "Years Experience"
+msgstr "سنوات خبرة"
+
+msgid "Pricing Plans"
+msgstr "باقات الأسعار"
+
+msgid "Choose your protection plan"
+msgstr "اختر باقة الحماية المناسبة"
+
+msgid "Basic"
+msgstr "أساسية"
+
+msgid "Standard"
+msgstr "قياسية"
+
+msgid "Premium"
+msgstr "مميزة"
+
+msgid "Get Started"
+msgstr "ابدأ الآن"
+
+msgid "Popular"
+msgstr "الأكثر طلباً"
+
+msgid "Our Specialists"
+msgstr "متخصصونا"
+
+msgid "Meet our certified pest control team"
+msgstr "تعرّف على فريقنا المعتمد لمكافحة الحشرات"
+
+msgid "Testimonials"
+msgstr "آراء العملاء"
+
+msgid "What our clients say"
+msgstr "ماذا يقول عملاؤنا"
+
+msgid "Latest News"
+msgstr "آخر الأخبار"
+
+msgid "Pest control tips & news"
+msgstr "نصائح وأخبار مكافحة الحشرات"
+
+msgid "Get In Touch"
+msgstr "تواصل معنا"
+
+msgid "Request a free pest inspection"
+msgstr "اطلب فحصاً مجانياً للحشرات"
+
+msgid "Your Name"
+msgstr "اسمك"
+
+msgid "Your Email"
+msgstr "بريدك الإلكتروني"
+
+msgid "Phone Number"
+msgstr "رقم الهاتف"
+
+msgid "Select Service"
+msgstr "اختر الخدمة"
+
+msgid "Tell us about your pest problem…"
+msgstr "أخبرنا عن مشكلتك مع الحشرات…"
+
+msgid "Send Request"
+msgstr "إرسال الطلب"
+
+msgid "Address"
+msgstr "العنوان"
+
+msgid "Phone"
+msgstr "الهاتف"
+
+msgid "Email"
+msgstr "البريد الإلكتروني"
+
+msgid "Mon - Sat: 8:00 - 18:00"
+msgstr "السبت - الخميس: 8:00 - 18:00"
+
+msgid "Ready to start?"
+msgstr "هل أنت مستعد؟"
+
+msgid "Need professional pest control? Book a free inspection today."
+msgstr "تحتاج مكافحة حشرات احترافية؟ احجز فحصاً مجانياً اليوم."
+
+msgid "Book Inspection"
+msgstr "احجز فحصاً"
+
+msgid "Quick Links"
+msgstr "روابط سريعة"
+
+msgid "Contact Info"
+msgstr "معلومات التواصل"
+
+msgid "All rights reserved."
+msgstr "جميع الحقوق محفوظة."
+
+msgid "Page not found"
+msgstr "الصفحة غير موجودة"
+
+msgid "The page you are looking for does not exist or has been moved."
+msgstr "الصفحة التي تبحث عنها غير موجودة أو تم نقلها."
+
+msgid "Back to Home"
+msgstr "العودة للرئيسية"
+
+msgid "Home"
+msgstr "الرئيسية"
+
+msgid "About"
+msgstr "من نحن"
+
+msgid "Services"
+msgstr "الخدمات"
+
+msgid "Pricing"
+msgstr "الأسعار"
+
+msgid "Blog"
+msgstr "المدونة"
+
+msgid "Contact"
+msgstr "تواصل"
+
+msgid "Search"
+msgstr "بحث"
+
+msgid "Made with"
+msgstr "صُنع بـ"
+
+msgid "for a pest-free world."
+msgstr "من أجل عالم خالٍ من الحشرات."
+
+msgid "Comments are closed."
+msgstr "التعليقات مغلقة."
+
+msgid "No posts found."
+msgstr "لا توجد مقالات."

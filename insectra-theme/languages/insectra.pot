@@ -1,0 +1,218 @@
+# Copyright (C) 2026 Insectra
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Insectra 1.0.0\n"
+"Report-Msgid-Bugs-To: https://example.com\n"
+"POT-Creation-Date: 2026-05-24 00:00+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Domain: insectra\n"
+
+msgid "Primary Menu"
+msgstr ""
+
+msgid "Footer Menu"
+msgstr ""
+
+msgid "Mobile Menu"
+msgstr ""
+
+msgid "Skip to content"
+msgstr ""
+
+msgid "Get a Quote"
+msgstr ""
+
+msgid "Get Free Quote"
+msgstr ""
+
+msgid "Our Services"
+msgstr ""
+
+msgid "Pest Control Experts"
+msgstr ""
+
+msgid "Safe & Reliable Pest Control Service"
+msgstr ""
+
+msgid "We protect your home and business with eco-friendly treatments."
+msgstr ""
+
+msgid "We protect your home and business with eco-friendly treatments by certified specialists."
+msgstr ""
+
+msgid "Certified Specialists"
+msgstr ""
+
+msgid "Eco-friendly Methods"
+msgstr ""
+
+msgid "24/7 Support"
+msgstr ""
+
+msgid "Safe & Approved"
+msgstr ""
+
+msgid "EPA-approved chemicals safe for kids and pets."
+msgstr ""
+
+msgid "Certified Team"
+msgstr ""
+
+msgid "Licensed technicians with 10+ years experience."
+msgstr ""
+
+msgid "Emergency response within hours, anywhere."
+msgstr ""
+
+msgid "About Insectra"
+msgstr ""
+
+msgid "Trusted partner for a pest-free environment"
+msgstr ""
+
+msgid "Discover More"
+msgstr ""
+
+msgid "What We Offer"
+msgstr ""
+
+msgid "Pest control services we provide"
+msgstr ""
+
+msgid "Termite Control"
+msgstr ""
+
+msgid "Mosquito Control"
+msgstr ""
+
+msgid "Spider Control"
+msgstr ""
+
+msgid "Cockroach Control"
+msgstr ""
+
+msgid "Rodent Control"
+msgstr ""
+
+msgid "Disinfection"
+msgstr ""
+
+msgid "Read More"
+msgstr ""
+
+msgid "Happy Clients"
+msgstr ""
+
+msgid "Expert Team"
+msgstr ""
+
+msgid "Projects Completed"
+msgstr ""
+
+msgid "Years Experience"
+msgstr ""
+
+msgid "Pricing Plans"
+msgstr ""
+
+msgid "Choose your protection plan"
+msgstr ""
+
+msgid "Basic"
+msgstr ""
+
+msgid "Standard"
+msgstr ""
+
+msgid "Premium"
+msgstr ""
+
+msgid "Get Started"
+msgstr ""
+
+msgid "Popular"
+msgstr ""
+
+msgid "Our Specialists"
+msgstr ""
+
+msgid "Meet our certified pest control team"
+msgstr ""
+
+msgid "Testimonials"
+msgstr ""
+
+msgid "What our clients say"
+msgstr ""
+
+msgid "Latest News"
+msgstr ""
+
+msgid "Pest control tips & news"
+msgstr ""
+
+msgid "Get In Touch"
+msgstr ""
+
+msgid "Request a free pest inspection"
+msgstr ""
+
+msgid "Your Name"
+msgstr ""
+
+msgid "Your Email"
+msgstr ""
+
+msgid "Phone Number"
+msgstr ""
+
+msgid "Select Service"
+msgstr ""
+
+msgid "Tell us about your pest problem…"
+msgstr ""
+
+msgid "Send Request"
+msgstr ""
+
+msgid "Address"
+msgstr ""
+
+msgid "Phone"
+msgstr ""
+
+msgid "Email"
+msgstr ""
+
+msgid "Mon - Sat: 8:00 - 18:00"
+msgstr ""
+
+msgid "Ready to start?"
+msgstr ""
+
+msgid "Need professional pest control? Book a free inspection today."
+msgstr ""
+
+msgid "Book Inspection"
+msgstr ""
+
+msgid "Quick Links"
+msgstr ""
+
+msgid "Contact Info"
+msgstr ""
+
+msgid "All rights reserved."
+msgstr ""
+
+msgid "Page not found"
+msgstr ""
+
+msgid "The page you are looking for does not exist or has been moved."
+msgstr ""
+
+msgid "Back to Home"
+msgstr ""

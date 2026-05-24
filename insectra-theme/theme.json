@@ -1,0 +1,36 @@
+{
+  "version": 2,
+  "settings": {
+    "appearanceTools": true,
+    "color": {
+      "palette": [
+        { "name": "Primary",   "slug": "primary",   "color": "#1FAE52" },
+        { "name": "Primary Dark", "slug": "primary-dark", "color": "#0F8A3E" },
+        { "name": "Dark",      "slug": "dark",      "color": "#0E1B2C" },
+        { "name": "Navy",      "slug": "navy",      "color": "#13243B" },
+        { "name": "Muted",     "slug": "muted",     "color": "#6B7A90" },
+        { "name": "Light",     "slug": "light",     "color": "#F4F7FB" },
+        { "name": "White",     "slug": "white",     "color": "#FFFFFF" },
+        { "name": "Accent",    "slug": "accent",    "color": "#FFB400" }
+      ]
+    },
+    "typography": {
+      "fontFamilies": [
+        { "fontFamily": "'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif", "name": "Inter", "slug": "inter" },
+        { "fontFamily": "'Cairo', 'Tajawal', 'Almarai', system-ui, sans-serif", "name": "Cairo (Arabic)", "slug": "cairo" }
+      ],
+      "fontSizes": [
+        { "name": "Small",  "slug": "small",  "size": "14px" },
+        { "name": "Normal", "slug": "normal", "size": "16px" },
+        { "name": "Large",  "slug": "large",  "size": "20px" },
+        { "name": "XL",     "slug": "x-large","size": "28px" },
+        { "name": "Huge",   "slug": "huge",   "size": "44px" }
+      ]
+    },
+    "layout": { "contentSize": "1200px", "wideSize": "1320px" }
+  },
+  "styles": {
+    "color": { "background": "var(--wp--preset--color--white)", "text": "var(--wp--preset--color--dark)" },
+    "typography": { "fontFamily": "var(--wp--preset--font-family--inter)", "lineHeight": "1.6" }
+  }
+}
