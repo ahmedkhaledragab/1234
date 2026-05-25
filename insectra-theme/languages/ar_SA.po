@@ -1,0 +1,2 @@
+# Arabic (Saudi Arabia) - alias of ar.po. WordPress will use either based on locale (ar, ar_SA, ar_AR).
+# To activate, generate ar_SA.mo via msgfmt: `msgfmt ar.po -o ar_SA.mo`
