@@ -2,21 +2,18 @@
 /**
  * Front page (home).
  *
- * Note: If a static page is set as front page and uses Elementor, that page's
- * Elementor content will load via page.php. This file is the fallback hero
- * homepage with predefined Insectra sections you can reorder via Customizer.
+ * If a static page is set as Front Page and uses Elementor, that page's
+ * Elementor content is rendered here. Otherwise, prebuilt sections are shown.
  *
  * @package Insectra
  */
 get_header();
 
-// If page assigned as front and has Elementor edits, defer to page.php content.
-if ( is_page() && class_exists( '\Elementor\Plugin' ) ) {
-    $document = \Elementor\Plugin::$instance->documents->get( get_the_ID() );
-    if ( $document && $document->is_built_with_elementor() ) {
-        while ( have_posts() ) { the_post(); the_content(); }
-        get_footer(); return;
-    }
+// Elementor-first: render Elementor content if the static front-page is built with it.
+if ( is_page() && insectra_is_built_with_elementor() ) {
+    while ( have_posts() ) { the_post(); the_content(); }
+    get_footer();
+    return;
 }
 ?>
 
@@ -27,7 +24,9 @@ if ( is_page() && class_exists( '\Elementor\Plugin' ) ) {
 <?php get_template_part( 'template-parts/sections/counter' ); ?>
 <?php get_template_part( 'template-parts/sections/pricing' ); ?>
 <?php get_template_part( 'template-parts/sections/team' ); ?>
+<?php get_template_part( 'template-parts/sections/projects' ); ?>
 <?php get_template_part( 'template-parts/sections/testimonials' ); ?>
+<?php get_template_part( 'template-parts/sections/brands' ); ?>
 <?php get_template_part( 'template-parts/sections/blog' ); ?>
 <?php get_template_part( 'template-parts/sections/contact' ); ?>
 

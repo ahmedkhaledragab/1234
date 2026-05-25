@@ -144,6 +144,8 @@ require_once INSECTRA_DIR . '/inc/elementor.php';
 require_once INSECTRA_DIR . '/inc/template-tags.php';
 require_once INSECTRA_DIR . '/inc/walker-nav.php';
 require_once INSECTRA_DIR . '/inc/tgm/tgm-init.php';
+require_once INSECTRA_DIR . '/inc/theme-options.php';
+require_once INSECTRA_DIR . '/inc/woocommerce.php';
 
 /**
  * Multilingual: Polylang & WPML compatibility helpers.

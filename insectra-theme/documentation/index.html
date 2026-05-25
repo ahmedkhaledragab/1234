@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Insectra — Pest Control WordPress Theme — Documentation</title>
+<style>
+:root{--p:#1FAE52;--pd:#0F8A3E;--d:#0E1B2C;--m:#6B7A90;--l:#F4F7FB;--b:#E6EBF2}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.7 'Inter',system-ui,Arial,sans-serif;color:var(--d);background:var(--l)}
+.layout{display:grid;grid-template-columns:300px 1fr;min-height:100vh}
+aside{background:#fff;border-right:1px solid var(--b);padding:30px 24px;position:sticky;top:0;height:100vh;overflow-y:auto}
+aside h1{font-size:20px;display:flex;align-items:center;gap:10px;margin:0 0 24px;color:var(--d)}
+aside h1 .ic{width:40px;height:40px;border-radius:10px;background:var(--p);color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px}
+aside ol{padding-left:20px;margin:0}
+aside ol li{margin-bottom:6px}
+aside a{color:var(--d);text-decoration:none;font-size:14px}
+aside a:hover{color:var(--p)}
+main{padding:50px 60px;max-width:960px}
+h1.page-title{font-size:36px;margin:0 0 8px}
+.subtitle{color:var(--m);margin-bottom:40px}
+section{background:#fff;padding:32px 36px;border-radius:14px;margin-bottom:24px;border:1px solid var(--b)}
+h2{font-size:22px;margin-top:0;color:var(--d);border-bottom:2px solid var(--p);padding-bottom:10px;display:inline-block}
+h3{font-size:17px;color:var(--d);margin-top:24px}
+code{background:var(--l);padding:2px 8px;border-radius:5px;font-size:14px;color:#c7254e}
+pre{background:var(--d);color:#cfe7d6;padding:18px;border-radius:10px;overflow:auto;font-size:13px}
+ul,ol{padding-left:22px}
+li{margin-bottom:6px}
+table{width:100%;border-collapse:collapse;margin:16px 0}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--b);font-size:14px}
+th{background:var(--l);font-weight:700}
+.note{background:#FFF7DD;border-left:4px solid #FFB400;padding:14px 18px;border-radius:8px;margin:14px 0;font-size:14px}
+.success{background:#E7F8EE;border-left:4px solid var(--p);padding:14px 18px;border-radius:8px;margin:14px 0;font-size:14px}
+@media (max-width:900px){.layout{grid-template-columns:1fr}aside{position:static;height:auto}main{padding:30px 20px}}
+</style>
+</head>
+<body>
+<div class="layout">
+<aside>
+<h1><span class="ic">🐛</span> Insectra Docs</h1>
+<ol>
+    <li><a href="#intro">Introduction</a></li>
+    <li><a href="#requirements">Requirements</a></li>
+    <li><a href="#whats-included">What's Included</a></li>
+    <li><a href="#wp-install">WordPress Installation</a></li>
+    <li><a href="#theme-install">Theme Installation</a>
+        <ol>
+            <li><a href="#install-admin">Via Admin Panel</a></li>
+            <li><a href="#install-cpanel">Via cPanel</a></li>
+            <li><a href="#install-ftp">Via FTP</a></li>
+        </ol>
+    </li>
+    <li><a href="#plugins">Plugin Installation</a></li>
+    <li><a href="#demo">Importing Demo Contents</a></li>
+    <li><a href="#basic">Basic Theme Setting</a>
+        <ol>
+            <li><a href="#homepage">Homepage Setting</a></li>
+            <li><a href="#menu">Menu Setting</a></li>
+            <li><a href="#cf7">Contact Form</a></li>
+            <li><a href="#widgets">Widget Settings</a></li>
+        </ol>
+    </li>
+    <li><a href="#header">Header Setup</a></li>
+    <li><a href="#footer">Footer Setup</a></li>
+    <li><a href="#page-title">Page Title</a></li>
+    <li><a href="#cpts">Custom Post Types</a></li>
+    <li><a href="#options">Theme Options</a></li>
+    <li><a href="#elementor">Elementor Widget</a></li>
+    <li><a href="#child">Child Theme</a></li>
+    <li><a href="#i18n">Multilingual & RTL</a></li>
+    <li><a href="#support">Support</a></li>
+    <li><a href="#thanks">Thank You</a></li>
+</ol>
+</aside>
+
+<main>
+<h1 class="page-title">Insectra — Pest Control WordPress Theme</h1>
+<p class="subtitle">Documentation v1.0 — May 2026</p>
+
+<section id="intro">
+<h2>1. Introduction</h2>
+<p>Thank you for purchasing <strong>Insectra</strong>. Insectra is a modern Pest Control & Disinfection WordPress theme with predefined web elements that helps you build a professional pest control website in minutes.</p>
+<p>If you have questions please contact us at <strong>help.kodesolution@gmail.com</strong>.</p>
+</section>
+
+<section id="requirements">
+<h2>2. Requirements</h2>
+<ul>
+    <li>PHP <strong>8.0</strong> or greater</li>
+    <li>MySQL <strong>5.6+</strong> or MariaDB <strong>10.0+</strong></li>
+    <li>WordPress <strong>6.0+</strong></li>
+</ul>
+<h3>Recommended PHP limits</h3>
+<table>
+    <tr><th>Directive</th><th>Value</th></tr>
+    <tr><td>max_execution_time</td><td>600</td></tr>
+    <tr><td>max_input_time</td><td>600</td></tr>
+    <tr><td>memory_limit</td><td>256M</td></tr>
+    <tr><td>post_max_size</td><td>128M</td></tr>
+    <tr><td>upload_max_filesize</td><td>128M</td></tr>
+    <tr><td>max_input_vars</td><td>3000</td></tr>
+</table>
+</section>
+
+<section id="whats-included">
+<h2>3. What's Included</h2>
+<ul>
+    <li><code>insectra.zip</code> — installable parent theme</li>
+    <li><code>insectra-child.zip</code> — child theme for safe customization</li>
+    <li><code>documentation/</code> — this documentation</li>
+    <li><code>languages/</code> — Arabic translation + POT template</li>
+</ul>
+</section>
+
+<section id="wp-install">
+<h2>4. WordPress Installation</h2>
+<p>If you don't yet have WordPress installed, follow the official guide at <a href="https://wordpress.org/documentation/article/how-to-install-wordpress/">WordPress.org</a>.</p>
+</section>
+
+<section id="theme-install">
+<h2>5. Theme Installation</h2>
+
+<h3 id="install-admin">5.1. Via Admin Panel</h3>
+<ol>
+    <li>Log in to your WordPress admin area.</li>
+    <li>Go to <strong>Appearance → Themes → Add New → Upload Theme</strong>.</li>
+    <li>Choose <code>insectra.zip</code>, click <strong>Install Now</strong>.</li>
+    <li>Click <strong>Activate</strong>.</li>
+</ol>
+
+<h3 id="install-cpanel">5.2. Via cPanel</h3>
+<ol>
+    <li>Open cPanel → File Manager → <code>public_html/wp-content/themes/</code></li>
+    <li>Click <strong>Upload</strong> → choose <code>insectra.zip</code> → Extract.</li>
+    <li>Activate from <strong>Appearance → Themes</strong>.</li>
+</ol>
+
+<h3 id="install-ftp">5.3. Via FTP</h3>
+<ol>
+    <li>Unzip <code>insectra.zip</code> on your computer.</li>
+    <li>Upload the <code>insectra-theme</code> folder to <code>/wp-content/themes/</code>.</li>
+    <li>Activate from <strong>Appearance → Themes</strong>.</li>
+</ol>
+</section>
+
+<section id="plugins">
+<h2>6. Plugin Installation</h2>
+<p>The following plugins are recommended:</p>
+<ul>
+    <li><strong>Elementor</strong> — page builder (required for full editing)</li>
+    <li><strong>Elementor Pro</strong> — Theme Builder header/footer overrides</li>
+    <li><strong>Contact Form 7</strong> — production contact forms</li>
+    <li><strong>WooCommerce</strong> — for shop functionality</li>
+    <li><strong>Polylang</strong> or <strong>WPML</strong> — multilingual</li>
+    <li><strong>Loco Translate</strong> — translate strings inside the dashboard</li>
+</ul>
+<div class="note">An admin notice in WP Dashboard will list any missing recommended plugins with one-click install links.</div>
+</section>
+
+<section id="demo">
+<h2>7. Importing Demo Contents</h2>
+<p>The theme works out-of-the-box without demo data: <code>front-page.php</code> ships with prebuilt sections that auto-populate using sample data when you have no content yet.</p>
+<p>To import full demo content using <em>One Click Demo Import</em>:</p>
+<ol>
+    <li>Install plugin <strong>One Click Demo Import</strong>.</li>
+    <li>Go to <strong>Appearance → Import Demo Data</strong>.</li>
+    <li>Click <strong>Import Demo Data</strong> → confirm.</li>
+</ol>
+</section>
+
+<section id="basic">
+<h2>8. Basic Theme Setting</h2>
+
+<h3 id="homepage">8.1 Homepage Setting</h3>
+<ol>
+    <li>Go to <strong>Pages → Add New</strong> → name it "Home" → publish.</li>
+    <li>Optionally choose a Page Template (<em>Default</em> for prebuilt sections, or <em>Home Layout 2</em> for the alternate dark hero).</li>
+    <li>Go to <strong>Settings → Reading → Your homepage displays → A static page → Homepage: Home</strong>.</li>
+</ol>
+<div class="success">If you build the Home page with Elementor, the theme automatically defers to your Elementor layout — no code needed.</div>
+
+<h3 id="menu">8.2 Menu Setting</h3>
+<p>Go to <strong>Appearance → Menus</strong>. Create a new menu, add items, then assign it to the location: <em>Primary Menu</em>, <em>Footer Menu</em>, or <em>Mobile Menu</em>.</p>
+
+<h3 id="cf7">8.3 Contact Form Settings</h3>
+<p>Install <strong>Contact Form 7</strong>. Go to <strong>Contact → Add New</strong>, copy the shortcode, and paste it into a page or Elementor widget. The theme's default contact section in <code>template-parts/sections/contact.php</code> uses a built-in lightweight form by default.</p>
+
+<h3 id="widgets">8.4 Widget Settings</h3>
+<p>Go to <strong>Appearance → Widgets</strong>. The theme registers 5 widget areas:</p>
+<ul>
+    <li>Blog Sidebar</li>
+    <li>Footer Column 1, 2, 3, 4</li>
+</ul>
+</section>
+
+<section id="header">
+<h2>9. Header Setup</h2>
+<p>Customize header globally in <strong>Appearance → Customize → Insectra: Header CTA</strong> and <strong>Insectra: Brand Colors</strong>.</p>
+<p>For a fully custom header (with Elementor Pro): <strong>Templates → Theme Builder → Add New → Header</strong> → assign condition.</p>
+</section>
+
+<section id="footer">
+<h2>10. Footer Setup</h2>
+<p>Edit footer text from <strong>Appearance → Customize → Insectra: Footer</strong>. Footer columns are powered by widgets at <strong>Appearance → Widgets → Footer Column 1-4</strong>.</p>
+</section>
+
+<section id="page-title">
+<h2>11. Page Title</h2>
+<p>Page title banner is controlled from <strong>Theme Options → General → Page Title Style</strong> (Default / Minimal / Hidden).</p>
+</section>
+
+<section id="cpts">
+<h2>12. Custom Post Types</h2>
+<p>The theme registers 4 main CPTs:</p>
+<table>
+    <tr><th>CPT</th><th>Slug</th><th>Where</th></tr>
+    <tr><td>Services</td>     <td><code>ins_service</code></td>     <td>Dashboard → Services</td></tr>
+    <tr><td>Staff</td>        <td><code>ins_staff</code></td>       <td>Dashboard → Staff</td></tr>
+    <tr><td>Projects</td>     <td><code>ins_project</code></td>     <td>Dashboard → Projects</td></tr>
+    <tr><td>Testimonials</td> <td><code>ins_testimonial</code></td> <td>Dashboard → Testimonials</td></tr>
+</table>
+<p>Each post supports <strong>Elementor</strong> editing — open any item and click "Edit with Elementor".</p>
+</section>
+
+<section id="options">
+<h2>13. Theme Options</h2>
+<p>Go to <strong>Theme Options</strong> in the admin sidebar for global settings (preloader, sticky header, footer layout, copyright, MailChimp action URL, GTM ID, reCAPTCHA key).</p>
+<p>Visual content (colors, hero, contact info, footer text, social links, map embed) is in <strong>Appearance → Customize</strong> under sections beginning with <code>Insectra:</code>.</p>
+</section>
+
+<section id="elementor">
+<h2>14. Elementor Widget</h2>
+<p>Every page, post and CPT entry can be edited with Elementor. The theme exposes the following Elementor Theme Builder locations (Pro):</p>
+<ul>
+    <li><code>header</code></li>
+    <li><code>footer</code></li>
+    <li><code>archive</code></li>
+    <li><code>single</code></li>
+    <li><code>before_content</code></li>
+    <li><code>after_content</code></li>
+</ul>
+</section>
+
+<section id="child">
+<h2>15. Child Theme</h2>
+<p>Always make code customizations through the child theme so updates to Insectra don't overwrite your changes.</p>
+<ol>
+    <li>Upload <code>insectra-child.zip</code> via <strong>Appearance → Themes → Add New → Upload Theme</strong>.</li>
+    <li>Activate <em>Insectra Child</em>.</li>
+    <li>Add your custom CSS to <code>insectra-child/style.css</code> and PHP to <code>insectra-child/functions.php</code>.</li>
+</ol>
+</section>
+
+<section id="i18n">
+<h2>16. Multilingual & RTL</h2>
+<p>The theme is fully translation-ready and ships with:</p>
+<ul>
+    <li><code>languages/insectra.pot</code> — POT template</li>
+    <li><code>languages/ar.po</code> — Arabic translation</li>
+    <li><code>rtl.css</code> — auto-loaded for RTL locales</li>
+</ul>
+<p>For Arabic site:</p>
+<ol>
+    <li>Compile <code>ar.po</code> to <code>ar.mo</code> using <code>msgfmt</code> or Loco Translate.</li>
+    <li>Settings → General → Site Language → <strong>العربية</strong>.</li>
+</ol>
+<p>For dual-language site, install Polylang or WPML — the topbar language switcher renders automatically.</p>
+</section>
+
+<section id="support">
+<h2>17. Support</h2>
+<p>For help or feature requests, contact us via the ThemeForest profile page or email <strong>help.kodesolution@gmail.com</strong>.</p>
+</section>
+
+<section id="thanks">
+<h2>18. Thank You</h2>
+<p>Thank you for purchasing Insectra. We appreciate your business and welcome a 5-star rating on ThemeForest if you're happy with the product 🌟</p>
+<p style="text-align:center;color:var(--m);margin-top:30px">Designed by <strong>Kodesolution</strong>. Powered by <strong>WordPress</strong>.</p>
+</section>
+
+</main>
+</div>
+</body>
+</html>

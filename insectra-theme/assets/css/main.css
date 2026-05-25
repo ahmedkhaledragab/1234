@@ -377,3 +377,128 @@ button{font-family:inherit}
 .ins-comments .comment-list{padding-left:0;margin-bottom:30px}
 .ins-comments .comment-list ol{padding-left:30px}
 .ins-comments .comment-body{padding:20px;border:1px solid var(--ins-border);border-radius:12px;margin-bottom:14px}
+
+
+
+/* ============================================================
+   PROJECTS
+   ============================================================ */
+.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.ins-project-card{background:#fff;border-radius:18px;overflow:hidden;border:1px solid var(--ins-border);transition:var(--ins-trans)}
+.ins-project-card .thumb{position:relative;display:block;height:240px;overflow:hidden;background:var(--ins-light)}
+.ins-project-card .thumb img{width:100%;height:100%;object-fit:cover;transition:var(--ins-trans)}
+.ins-project-card .thumb.no-img{display:flex;align-items:center;justify-content:center;font-size:64px;color:#cbd2dc}
+.ins-project-card .overlay{position:absolute;inset:0;background:rgba(31,174,82,.85);color:#fff;display:flex;align-items:center;justify-content:center;font-size:28px;opacity:0;transition:var(--ins-trans)}
+.ins-project-card:hover .thumb img{transform:scale(1.06)}
+.ins-project-card:hover .overlay{opacity:1}
+.ins-project-card:hover{box-shadow:var(--ins-shadow-lg);transform:translateY(-4px)}
+.ins-project-card .card-body{padding:22px 24px}
+.ins-project-card .cat{display:inline-block;color:var(--ins-primary);font-size:12px;text-transform:uppercase;letter-spacing:.12em;font-weight:700;margin-bottom:8px}
+.ins-project-card h3{font-size:19px;margin:0;line-height:1.35}
+.ins-project-card h3 a{color:var(--ins-dark)}
+.ins-project-card h3 a:hover{color:var(--ins-primary)}
+
+/* Filter chips */
+.ins-filter{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:40px}
+.ins-filter li a{display:inline-block;padding:10px 22px;border-radius:50px;background:#fff;color:var(--ins-dark);font-weight:600;border:1px solid var(--ins-border)}
+.ins-filter li a:hover,.ins-filter li a.active{background:var(--ins-primary);color:#fff;border-color:var(--ins-primary)}
+
+/* Single project */
+.ins-single-project .project-hero{margin-bottom:30px;border-radius:18px;overflow:hidden}
+.project-meta-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:24px;padding:30px;background:var(--ins-light);border-radius:18px;margin-bottom:30px}
+.project-meta-grid div{display:flex;flex-direction:column;gap:4px}
+.project-meta-grid span{color:var(--ins-muted);font-size:13px;text-transform:uppercase;letter-spacing:.08em;font-weight:600}
+.project-meta-grid strong,.project-meta-grid a{color:var(--ins-dark);font-size:16px;font-weight:700}
+
+/* ============================================================
+   BRANDS STRIP
+   ============================================================ */
+.ins-brands{padding:60px 0;background:#fff;border-top:1px solid var(--ins-border)}
+.brands-strip{display:flex;align-items:center;gap:30px;flex-wrap:wrap;justify-content:center}
+.brands-label{color:var(--ins-muted);font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:.12em}
+.brands-strip ul{display:flex;gap:50px;flex-wrap:wrap;align-items:center;justify-content:center}
+.brands-strip li{font-size:36px;color:#9aa6b8;transition:var(--ins-trans)}
+.brands-strip li:hover{color:var(--ins-primary);transform:translateY(-2px)}
+
+/* ============================================================
+   ABOUT - MISSION/VISION/VALUES
+   ============================================================ */
+.ins-mission{background:var(--ins-light)}
+.mission-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.mission-item{background:#fff;padding:40px 32px;border-radius:18px;text-align:center;transition:var(--ins-trans);border:1px solid var(--ins-border)}
+.mission-item .ic{width:80px;height:80px;border-radius:20px;background:linear-gradient(135deg,var(--ins-primary),var(--ins-primary-dark));color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:32px;margin-bottom:22px}
+.mission-item h3{font-size:22px;margin-bottom:12px}
+.mission-item p{color:var(--ins-muted);margin:0}
+.mission-item:hover{transform:translateY(-4px);box-shadow:var(--ins-shadow-lg);border-color:transparent}
+
+/* ============================================================
+   CONTACT PAGE
+   ============================================================ */
+.info-cards-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-bottom:50px}
+.info-card{background:#fff;padding:30px 26px;border-radius:18px;text-align:center;border:1px solid var(--ins-border);transition:var(--ins-trans)}
+.info-card .ic{width:60px;height:60px;border-radius:50%;background:var(--ins-light);color:var(--ins-primary);display:inline-flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:16px;transition:var(--ins-trans)}
+.info-card h4{font-size:17px;margin-bottom:8px}
+.info-card p{margin:0;color:var(--ins-muted);font-size:15px}
+.info-card a{color:var(--ins-muted)}
+.info-card:hover{transform:translateY(-4px);box-shadow:var(--ins-shadow);border-color:transparent}
+.info-card:hover .ic{background:var(--ins-primary);color:#fff}
+.ins-map iframe{display:block;border:0;width:100%;filter:grayscale(.2) contrast(1.05)}
+
+/* ============================================================
+   SINGLE SERVICE / STAFF / PROJECT
+   ============================================================ */
+.service-layout{display:grid;grid-template-columns:1fr 320px;gap:40px}
+.service-icon-row{display:flex;align-items:center;gap:18px;margin:18px 0}
+.big-icon{width:74px;height:74px;border-radius:18px;background:var(--ins-primary);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:30px;flex-shrink:0}
+.service-icon-row h2{margin:0}
+.service-sidebar .widget{background:#fff;border:1px solid var(--ins-border);border-radius:14px;padding:24px;margin-bottom:20px}
+.service-sidebar .widget-title{font-size:18px;margin:0 0 16px;padding-bottom:14px;border-bottom:1px solid var(--ins-border)}
+
+.staff-layout{display:grid;grid-template-columns:380px 1fr;gap:40px;align-items:start}
+.staff-photo{position:relative;border-radius:18px;overflow:hidden;background:var(--ins-light)}
+.staff-photo img{width:100%;height:auto;display:block}
+.staff-photo .no-image{display:flex;align-items:center;justify-content:center;height:380px;font-size:80px;color:#cbd2dc}
+.staff-photo .socials{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(to top,rgba(14,27,44,.7),transparent);padding:16px;display:flex;gap:8px;justify-content:center}
+.staff-photo .socials a{width:38px;height:38px;border-radius:50%;background:#fff;color:var(--ins-dark);display:inline-flex;align-items:center;justify-content:center}
+.staff-photo .socials a:hover{background:var(--ins-primary);color:#fff}
+.staff-bio h2{font-size:32px;margin-bottom:6px}
+.staff-bio .role{color:var(--ins-primary);font-weight:600;text-transform:uppercase;letter-spacing:.08em;margin-bottom:24px}
+
+/* ============================================================
+   ELEMENTOR HARMONY
+   ============================================================ */
+.elementor-element{box-sizing:border-box}
+body.elementor-editor-active .ins-page-banner{display:block}
+
+/* ============================================================
+   WOOCOMMERCE BASIC
+   ============================================================ */
+.ins-woocommerce .woocommerce ul.products li.product .button,
+.ins-woocommerce .woocommerce a.button,
+.ins-woocommerce .woocommerce button.button{
+    background:var(--ins-primary);color:#fff;border-radius:50px;padding:12px 24px;font-weight:600
+}
+.ins-woocommerce .woocommerce a.button:hover,
+.ins-woocommerce .woocommerce button.button:hover{background:var(--ins-primary-dark);color:#fff}
+.ins-cart-link{position:relative;display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:12px;background:var(--ins-light);color:var(--ins-dark);margin-left:8px}
+.ins-cart-link .count{position:absolute;top:-6px;right:-6px;background:var(--ins-primary);color:#fff;width:22px;height:22px;border-radius:50%;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center}
+
+/* ============================================================
+   HERO V2
+   ============================================================ */
+.ins-hero-v2{padding:140px 0;background:linear-gradient(135deg,var(--ins-dark),var(--ins-navy))}
+.ins-hero-v2 .hero-grid{grid-template-columns:1fr}
+
+/* ============================================================
+   RESPONSIVE EXTRAS
+   ============================================================ */
+@media (max-width:1024px){
+    .projects-grid,.mission-grid{grid-template-columns:1fr 1fr}
+    .info-cards-grid{grid-template-columns:1fr 1fr}
+    .service-layout,.staff-layout{grid-template-columns:1fr}
+}
+@media (max-width:768px){
+    .projects-grid,.mission-grid,.info-cards-grid{grid-template-columns:1fr}
+    .brands-strip ul{gap:30px}
+    .brands-strip li{font-size:28px}
+}

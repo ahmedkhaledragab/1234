@@ -73,6 +73,15 @@ function insectra_customize_register( $wp_customize ) {
     $wp_customize->add_control( 'insectra_footer_about', array( 'label' => __( 'About text', 'insectra' ), 'section' => 'insectra_footer', 'type' => 'textarea' ) );
     $wp_customize->add_setting( 'insectra_footer_cta', array( 'default' => __( 'Need professional pest control? Book a free inspection today.', 'insectra' ), 'sanitize_callback' => 'sanitize_text_field' ) );
     $wp_customize->add_control( 'insectra_footer_cta', array( 'label' => __( 'Footer CTA Headline', 'insectra' ), 'section' => 'insectra_footer' ) );
+
+    // ===== Map =====
+    $wp_customize->add_section( 'insectra_map', array( 'title' => __( 'Insectra: Map Embed', 'insectra' ), 'priority' => 60 ) );
+    $wp_customize->add_setting( 'insectra_map_embed', array( 'default' => '', 'sanitize_callback' => 'wp_kses_post' ) );
+    $wp_customize->add_control( 'insectra_map_embed', array(
+        'label' => __( 'Google Maps iframe HTML', 'insectra' ),
+        'description' => __( 'Paste an iframe embed from Google Maps. Leave empty for default.', 'insectra' ),
+        'section' => 'insectra_map', 'type' => 'textarea',
+    ) );
 }
 add_action( 'customize_register', 'insectra_customize_register' );
 

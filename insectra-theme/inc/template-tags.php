@@ -11,6 +11,7 @@ function insectra_default_menu() {
     echo '<li><a href="' . esc_url( home_url( '/' ) ) . '">' . esc_html__( 'Home', 'insectra' ) . '</a></li>';
     echo '<li><a href="#about">' . esc_html__( 'About', 'insectra' ) . '</a></li>';
     echo '<li><a href="#services">' . esc_html__( 'Services', 'insectra' ) . '</a></li>';
+    echo '<li><a href="#projects">' . esc_html__( 'Projects', 'insectra' ) . '</a></li>';
     echo '<li><a href="#pricing">' . esc_html__( 'Pricing', 'insectra' ) . '</a></li>';
     echo '<li><a href="#blog">' . esc_html__( 'Blog', 'insectra' ) . '</a></li>';
     echo '<li><a href="#contact">' . esc_html__( 'Contact', 'insectra' ) . '</a></li>';
@@ -29,7 +30,30 @@ function insectra_get_socials() {
 }
 
 /**
- * Language switcher: integrates with Polylang/WPML if active, else simple AR/EN toggle.
+ * Detect if the current post/page is built with Elementor.
+ * Returns true if Elementor builder has data so theme templates can defer to the_content().
+ */
+function insectra_is_built_with_elementor( $post_id = null ) {
+    $post_id = $post_id ?: get_the_ID();
+    if ( ! $post_id || ! class_exists( '\Elementor\Plugin' ) ) return false;
+    $document = \Elementor\Plugin::$instance->documents->get( $post_id );
+    return $document && $document->is_built_with_elementor();
+}
+
+/**
+ * Render Elementor-first wrapper: if the page is built in Elementor, output the_content().
+ * Otherwise call $fallback (closure) to render the prebuilt sections.
+ */
+function insectra_elementor_first( callable $fallback ) {
+    if ( insectra_is_built_with_elementor() ) {
+        while ( have_posts() ) { the_post(); the_content(); }
+        return;
+    }
+    $fallback();
+}
+
+/**
+ * Language switcher.
  */
 function insectra_lang_switcher() {
     if ( function_exists( 'pll_the_languages' ) ) {
@@ -49,13 +73,11 @@ function insectra_lang_switcher() {
         }
         return;
     }
-    // Fallback: static AR/EN toggle (visual). Locale switching needs a plugin.
-    $current = strpos( get_locale(), 'ar' ) === 0 ? 'AR' : 'EN';
     echo '<li class="lang-switcher static"><a href="?lang=en">EN</a><span>|</span><a href="?lang=ar">AR</a></li>';
 }
 
 /**
- * Simple breadcrumbs.
+ * Breadcrumbs.
  */
 function insectra_breadcrumbs() {
     if ( function_exists( 'yoast_breadcrumb' ) ) { yoast_breadcrumb( '<p class="ins-bc">', '</p>' ); return; }
